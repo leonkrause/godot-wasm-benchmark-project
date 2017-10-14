@@ -1,10 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://enemy.gd" type="Script" id=1]
 [ext_resource path="res://enemy.png" type="Texture" id=2]
 [ext_resource path="res://bullet.png" type="Texture" id=3]
-[ext_resource path="res://sound_hit.wav" type="AudioStream" id=4]
-[ext_resource path="res://sound_explode.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -102,18 +100,19 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 radius = 14.0
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=5]
 
 offsets = PoolRealArray( 0, 0.564972, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.915254, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=7]
+[sub_resource type="GradientTexture" id=6]
 
-gradient = SubResource( 6 )
+gradient = SubResource( 5 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=7]
 
+render_priority = 0
 trail_divisor = 1
 emission_shape = 1
 emission_sphere_radius = 20.0
@@ -141,7 +140,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 2.4
 scale_random = 0.0
-color_ramp = SubResource( 7 )
+color_ramp = SubResource( 6 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -247,35 +246,15 @@ preprocess = 0.0
 speed_scale = 1.0
 explosiveness = 0.86
 randomness = 0.0
-visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = true
 fixed_fps = 0
 fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
 draw_order = 4
-process_material = SubResource( 8 )
+process_material = SubResource( 7 )
 texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-
-[node name="sound_hit" type="AudioStreamPlayer2D" parent="."]
-
-stream = ExtResource( 4 )
-volume_db = 0.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-
-[node name="sound_explode" type="AudioStreamPlayer2D" parent="."]
-
-stream = ExtResource( 5 )
-volume_db = 0.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 

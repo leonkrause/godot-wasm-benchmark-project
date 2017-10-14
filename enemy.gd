@@ -30,7 +30,6 @@ func _pre_explode():
 	
 	# Stay there
 	set_mode(MODE_STATIC)
-	get_node("sound_explode").play()
 
 
 func _integrate_forces(s):
@@ -56,7 +55,6 @@ func _integrate_forces(s):
 					s.set_angular_velocity(sign(dp.x)*33.0)
 					set_friction(1)
 					cc.disable()
-					get_node("sound_hit").play()
 					break
 			
 			if (dp.x > 0.9):

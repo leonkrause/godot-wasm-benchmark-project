@@ -106,7 +106,6 @@ func _integrate_forces(s):
 		bi.linear_velocity=Vector2(800.0*ss, -80)
 		
 		get_node("sprite/smoke").restart()
-		get_node("sound_shoot").play()
 		
 		add_collision_exception_with(bi) # Make bullet and this not collide
 	else:
@@ -150,7 +149,6 @@ func _integrate_forces(s):
 			lv.y = -JUMP_VELOCITY
 			jumping = true
 			stopping_jump = false
-			get_node("sound_jump").play()
 		
 		# Check siding
 		if (lv.x < 0 and move_left):
